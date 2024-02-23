@@ -15,3 +15,4 @@ Input: s = "(]" Output: false
 Constraints:
 
 1 <= s.length <= 104 s consists of parentheses only '()[]{}'.
+
