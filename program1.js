@@ -3,22 +3,25 @@
  * @return {boolean}
  */
 var isValid = function(s) {
-    def isValid(s: str) -> bool:
-    stack = []
-    mapping = {")": "(", "}": "{", "]": "["}
+    const stack = [];
+    const mapping = {
+        ")": "(",
+        "}": "{",
+        "]": "["
+    };
 
-    for char in s:
-        if char in mapping:
-            top_element = stack.pop() if stack else '#'
-            if mapping[char] != top_element:
-                return False
-        else:
-            stack.append(char)
+    for (let char of s) {
+        if (char in mapping) {
+            const topElement = stack.pop() || '#';
+            if (mapping[char] !== topElement) {
+                return false;
+            }
+        } else {
+            stack.push(char);
+        }
+    }
 
-    return not stack
-    
+    return stack.length === 0;
 };
 
 module.exports = { isValid };
-
-
